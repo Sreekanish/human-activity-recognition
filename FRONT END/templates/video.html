@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Output</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body  {
+            background-image: url("https://everguard-company-website-media-files.s3-us-west-2.amazonaws.com/images/blog/7-listing.png?1710328220");
+            background-repeat: no-repeat;
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .Bcard{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffcdd2, #e57373);
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    
+<div class="container-fluid">
+    <div class="col-md-6">
+        <div class="card Bcard mt-5">
+            <div class="card-body">
+                <h1>VIDEO IS {{ ab }} </h1>
+                <!-- <h5>File Path: {{ abc }}</h5> -->
+
+                <video width="640" height="360" controls>
+                    {% if abc.endswith('.mp4') %}
+                    <source src="{{ url_for('static', filename=abc) }}" type="video/mp4">
+                {% elif abc.endswith('.avi') %}
+                    <source src="{{ url_for('static', filename=abc) }}" type="video/x-msvideo">
+                {% else %}
+                    <p>Unsupported video format.</p>
+                {% endif %}
+                    Your browser does not support the video tag.
+                </video>
+                
+                <br>
+                <a href="/index" class="btn btn-danger">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

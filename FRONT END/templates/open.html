@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <style>
+    /* Custom CSS can go here */
+    body  {
+      background-image: url("https://everguard-company-website-media-files.s3-us-west-2.amazonaws.com/images/blog/7-listing.png?1710328220");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .title{
+      font-size: xxx-large;
+    font-family: fangsong;
+    color: darkgray;
+    font-weight: bold;
+    }
+    .mainDiv{
+      height:500px;
+      padding-top: 10%;
+      
+    }
+    .Bbutton{
+      width: -webkit-fill-available;
+    }
+    .hr-text-container {
+      text-align: center;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .hr-text-container hr {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 0;
+    }
+  
+    .hr-text-container span {
+      font-size: 16px;
+      background-color: #fff;
+      padding: 0 10px;
+      position: relative;
+      top: -10px;
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div class="container mainDiv mt-5">
+    <div class="d-flex h-full justify-content-left align-items-center ">
+    <div class="row">
+      <div class=" ">
+        <h1 class="title">Human Action Recognition</h1>
+        <br> 
+      </div>
+    </div>
+    <br>
+   
+   
+  </div>
+  
+  <div class="row">
+    <div class="col-md-5">
+     <h5 style="color:darkgray;">Let's Predict :) </h5> <br>
+      <div class="d-grid gap-4 d-md-flex justify-content-between pl-4 pr-4 mr-2 ml-2 btn-lg w-full">
+        <button type="button" class=" btn btn-outline-primary  Bbutton" onclick="goToFilePage()">Enter</button>
+       
+      </div>
+    </div>
+  </div>
+  
+    <h1 class="fade-in glitter"><span class="glitter"></span></h1>
+    <div class="mt-3">
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Optional - only needed if you want to use Bootstrap JavaScript features) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // JavaScript functions to handle button clicks
+    function goToFilePage() {
+      window.location.href = "/index";
+    }
+
+    function goToLivePage() {
+      window.location.href = "/live";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+      
+
+        body  {
+            background-image: url("https://everguard-company-website-media-files.s3-us-west-2.amazonaws.com/images/blog/7-listing.png?1710328220");
+            background-repeat: no-repeat;
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+               
+          }
+          .title{
+           
+          font-family: fangsong;
+          color: darkgray;
+          font-weight: bold;
+          }
+          .mainDiv{
+            height:500px;
+            padding-top: 10%;
+            
+          }
+
+       
+
+        
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #9c27b0;
+            }
+            100% {
+                text-shadow: 0 0 20px #9c27b0, 0 0 30px #9c27b0, 0 0 40px #9c27b0;
+            }
+        }
+
+        form {
+            max-width: 400px;
+           
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffcdd2, #e57373);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            border: 2px solid #ff4081; /* Pink color */
+            padding: 8px;
+            border-radius: 5px;
+            width: calc(100% - 18px);
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #ff5722, #e64a19); /* Deep Orange */
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #e64a19, #ff5722); /* Deep Orange */
+            box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Additional styles for the checkbox and label */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check-label {
+            margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+   
+    <div class="container-fluid">
+        <h2 class="title mt-5">HUMAN ACTION RECOGNITION</h2>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group" id="fileUploadSection">
+                <label for="file">UPLOAD FILE FOR DETECTION</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept=".jpg, .jpeg, .mp4" required>
+                <button type="button" class="btn btn-primary mt-3" onclick="uploadWithSpinner()">Upload</button>
+            </div>
+            <div id="spinner" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+        
+
+        </form>
+        <br><br>
+        <form >
+        <h5>View Your Action Predictions</h5>
+        <ul>
+            {% for video in videos %}
+                <li><a href="{{ url_for('static', filename=video) }}" target="_blank">{{ video }}</a></li>
+            {% endfor %}
+        </ul>
+    </form>
+    <br>
+    
+    <a href="/" class="btn btn-danger">Go Back</a>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js if needed -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com
+
+
+    <!-- Add Bootstrap JS and Popper.js if needed -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    
+    <script>
+        function uploadWithSpinner() {
+            // Check if a file is selected
+            var fileInput = document.getElementById("file");
+            if (fileInput.files.length === 0) {
+                alert("Please choose a file to upload.");
+                return;
+            }
+            // Hide the entire form including the "UPLOAD FILE FOR DETECTION" label
+            document.getElementById("fileUploadSection").style.display = "none";
+
+            // Display the spinner
+            document.getElementById("spinner").style.display = "block";
+
+            // You can add additional logic here, such as submitting the form using AJAX
+
+            // For demonstration purposes, let's simulate a delay
+            setTimeout(function() {
+                // Submit the form (you can replace this with your actual form submission logic)
+                document.getElementById("uploadForm").submit();
+            }, 2000); // 2000 milliseconds (2 seconds) delay, replace with your desired delay
+        }
+    </script>
+</body>
+</html>
